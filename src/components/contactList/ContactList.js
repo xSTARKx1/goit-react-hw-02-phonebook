@@ -1,9 +1,19 @@
 import React from 'react';
 import Contact from './Contact';
+import styles from './ContactList.module.css';
 
 const ContactList = ({ contacts, onDeleteContact }) => (
   <ul>
-    <Contact contacts={contacts} onDeleteContact={onDeleteContact} />
+    {contacts.map(({ name, number, id }) => (
+      <li key={id} className={styles.contact}>
+        <Contact
+          name={name}
+          number={number}
+          id={id}
+          onDeleteContact={onDeleteContact}
+        />
+      </li>
+    ))}
   </ul>
 );
 
