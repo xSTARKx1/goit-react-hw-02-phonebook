@@ -12,11 +12,11 @@ class App extends Component {
   };
 
   addContact = ({ name, number }) => {
-    const uniqueName = this.state.contacts.find(
+    const isUniqueName = this.state.contacts.some(
       contact => contact.name === name,
     );
 
-    if (uniqueName) {
+    if (isUniqueName) {
       alert(`${name} is alredy in contacts`);
 
       return;
